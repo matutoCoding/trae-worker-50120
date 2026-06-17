@@ -6,7 +6,7 @@ import SectionCard from '@/components/SectionCard'
 import QuickEntry from '@/components/QuickEntry'
 import Tag from '@/components/Tag'
 import { useAppStore } from '@/store'
-import { getStatusText, getStatusColor } from '@/utils'
+import { getStatusColor } from '@/utils'
 import styles from './index.module.scss'
 
 const HomePage: React.FC = () => {

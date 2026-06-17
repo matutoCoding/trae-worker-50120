@@ -84,7 +84,16 @@ function reducer(state: AppState, action: ActionType): AppState {
     case 'ADD_PROCESS_RECORD': {
       const newRecords = [action.payload, ...state.processRecords]
       Taro.setStorageSync(STORAGE_KEY_PROCESS, JSON.stringify(newRecords))
-      return { ...state, processRecords: newRecords }
+      
+      const newWorks = state.workArchives.map(w => {
+        if (w.id === action.payload.workId) {
+          return { ...w, processRecords: [action.payload, ...w.processRecords] }
+        }
+        return w
+      })
+      Taro.setStorageSync(STORAGE_KEY_WORKS, JSON.stringify(newWorks))
+      
+      return { ...state, processRecords: newRecords, workArchives: newWorks }
     }
 
     case 'UPDATE_SHADOW_ROOM': {

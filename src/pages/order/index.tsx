@@ -42,10 +42,6 @@ const OrderPage: React.FC = () => {
     Taro.navigateTo({ url: `/pages/order-detail/index?id=${id}` })
   }
 
-  const handleNewOrder = () => {
-    Taro.showToast({ title: '新建订单', icon: 'none' })
-  }
-
   return (
     <ScrollView className={styles.page} scrollY>
       <View className={styles.tabs}>
@@ -117,7 +113,7 @@ const OrderPage: React.FC = () => {
                   className={styles.actionBtn}
                   onClick={(e) => {
                     e.stopPropagation()
-                    Taro.showToast({ title: '查看进度', icon: 'none' })
+                    handleOrderClick(order.id)
                   }}
                 >
                   查看进度

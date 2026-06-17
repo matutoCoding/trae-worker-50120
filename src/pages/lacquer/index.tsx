@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react'
 import { View, Text, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import classnames from 'classnames'
 import SegmentedControl from '@/components/SegmentedControl'
 import Tag from '@/components/Tag'

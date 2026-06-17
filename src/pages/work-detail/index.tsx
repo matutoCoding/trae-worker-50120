@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react'
 import { View, Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import { useRouter } from '@tarojs/taro'
 import classnames from 'classnames'
 import Tag from '@/components/Tag'
