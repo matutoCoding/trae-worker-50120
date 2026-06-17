@@ -1,0 +1,184 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 120rpx;
+}
+
+.tabs {
+  margin-bottom: $spacing-lg;
+}
+
+.statusTabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.statusTab {
+  padding: 8rpx $spacing-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  display: inline-block;
+  transition: all $transition-base;
+}
+
+.statusTabActive {
+  background: $color-primary;
+  color: $color-text-inverse;
+}
+
+.orderCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.orderHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.orderNo {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.orderCustomer {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.orderType {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.orderReq {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background: $color-bg-elevated;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-md;
+  line-height: 1.6;
+}
+
+.orderFooter {
+  @include flex-between;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.orderPrices {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-sm;
+}
+
+.orderTotal {
+  font-size: $font-size-md;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.orderDeposit {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.orderDates {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: right;
+}
+
+.orderDateItem {
+  display: block;
+  margin-top: 4rpx;
+}
+
+.actionBtn {
+  @include button-reset;
+  padding: 8rpx $spacing-lg;
+  border-radius: $radius-button;
+  background: rgba(139, 35, 35, 0.08);
+  font-size: $font-size-sm;
+  color: $color-primary;
+  white-space: nowrap;
+
+  &:active {
+    background: rgba(139, 35, 35, 0.15);
+  }
+}
+
+.actionRow {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  justify-content: flex-end;
+}
+
+.careCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.careHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.careTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.careContent {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.salesSummary {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-inverse;
+}
+
+.salesTitle {
+  font-size: $font-size-sm;
+  opacity: 0.85;
+  margin-bottom: $spacing-sm;
+}
+
+.salesAmount {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+}
+
+.salesCount {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+}

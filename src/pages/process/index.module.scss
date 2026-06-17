@@ -1,0 +1,234 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 120rpx;
+}
+
+.tabs {
+  margin-bottom: $spacing-lg;
+}
+
+.section {
+  margin-bottom: $spacing-lg;
+}
+
+.shadowCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  position: relative;
+  overflow: hidden;
+}
+
+.shadowHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+}
+
+.shadowName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.shadowStatus {
+  font-size: $font-size-sm;
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-sm;
+}
+
+.statusNormal {
+  background: rgba(46, 93, 58, 0.1);
+  color: $color-success;
+}
+
+.statusWarning {
+  background: rgba(212, 136, 42, 0.1);
+  color: $color-warning;
+}
+
+.metrics {
+  display: flex;
+  gap: $spacing-xl;
+}
+
+.metric {
+  flex: 1;
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 48rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.metricLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.metricTarget {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.meter {
+  margin-top: $spacing-lg;
+  height: 8rpx;
+  background: $color-border-light;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-secondary 0%, $color-primary 100%);
+  border-radius: $radius-round;
+}
+
+.worksInShadow {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.worksTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.workItem {
+  @include flex-between;
+  padding: $spacing-sm 0;
+}
+
+.workName {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+}
+
+.workTime {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.enterBtn {
+  @include button-reset;
+  padding: 8rpx $spacing-md;
+  border-radius: $radius-button;
+  background: rgba(139, 35, 35, 0.08);
+  font-size: $font-size-xs;
+  color: $color-primary;
+  white-space: nowrap;
+
+  &:active {
+    background: rgba(139, 35, 35, 0.15);
+  }
+}
+
+.processItem {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.processHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.processWork {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.processType {
+  font-size: $font-size-base;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.processMeta {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.processMetaItem {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.processFooter {
+  @include flex-between;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.processDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.processLayer {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.polishSection {
+  margin-top: $spacing-md;
+}
+
+.polishCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.polishHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.polishTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.polishProgress {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.polishSteps {
+  margin-top: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.stepItem {
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.stepActive {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-inverse;
+}
+
+.stepDone {
+  background: rgba(46, 93, 58, 0.1);
+  color: $color-success;
+}

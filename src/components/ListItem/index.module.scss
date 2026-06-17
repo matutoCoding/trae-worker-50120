@@ -1,0 +1,69 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+  flex: 1;
+  margin-right: $spacing-sm;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.metaItem {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+}
+
+.metaLabel {
+  color: $color-text-tertiary;
+  margin-right: $spacing-xs;
+}
+
+.desc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  @include text-ellipsis-multi(2);
+  margin-top: $spacing-xs;
+}
+
+.footer {
+  @include flex-between;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.footerText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.tags {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}

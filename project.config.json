@@ -1,0 +1,14 @@
+{
+  "miniprogramRoot": "dist/",
+  "projectname": "lacquer-workshop",
+  "description": "传统漆器髹饰工坊小程序",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0"
+}

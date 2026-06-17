@@ -1,0 +1,83 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 120rpx;
+}
+
+.filters {
+  margin-bottom: $spacing-lg;
+}
+
+.workCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.workHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.workName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+  flex: 1;
+  margin-right: $spacing-sm;
+}
+
+.workMeta {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.workMetaItem {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.workTags {
+  display: flex;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.workDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  @include text-ellipsis-multi(2);
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+.workFooter {
+  @include flex-between;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.workArtist {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.workPrice {
+  font-size: $font-size-md;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.workFinishDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}

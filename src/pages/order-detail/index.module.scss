@@ -1,0 +1,199 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 200rpx;
+}
+
+.header {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-inverse;
+}
+
+.orderNo {
+  font-size: $font-size-sm;
+  opacity: 0.85;
+  margin-bottom: $spacing-xs;
+}
+
+.orderStatus {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+}
+
+.orderType {
+  font-size: $font-size-base;
+  opacity: 0.9;
+}
+
+.section {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1rpx solid $color-border-light;
+}
+
+.infoRow {
+  @include flex-between;
+  padding: $spacing-sm 0;
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  text-align: right;
+  flex: 1;
+  margin-left: $spacing-md;
+}
+
+.requirementsBox {
+  padding: $spacing-md;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+}
+
+.reqText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.8;
+}
+
+.progress {
+  margin-top: $spacing-md;
+}
+
+.steps {
+  position: relative;
+  padding-left: $spacing-xl;
+}
+
+.stepItem {
+  position: relative;
+  padding-bottom: $spacing-lg;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.stepDot {
+  position: absolute;
+  left: -$spacing-xl;
+  top: 6rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: $radius-round;
+  background: $color-border;
+  border: 4rpx solid $color-bg-card;
+}
+
+.dotDone {
+  background: $color-success;
+}
+
+.dotCurrent {
+  background: $color-primary;
+}
+
+.stepLine {
+  position: absolute;
+  left: -44rpx;
+  top: 30rpx;
+  bottom: -$spacing-lg;
+  width: 2rpx;
+  background: $color-border-light;
+}
+
+.stepItem:last-child .stepLine {
+  display: none;
+}
+
+.stepHeader {
+  @include flex-between;
+  margin-bottom: 4rpx;
+}
+
+.stepName {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.stepDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.stepDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.priceRow {
+  @include flex-between;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.priceLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.priceValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+.totalRow {
+  @include flex-between;
+  padding-top: $spacing-md;
+  margin-top: $spacing-sm;
+  border-top: 2rpx solid $color-border;
+}
+
+.totalLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.totalValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -4rpx 16rpx rgba(44, 24, 16, 0.06);
+  display: flex;
+  gap: $spacing-md;
+}

@@ -1,0 +1,167 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 120rpx;
+}
+
+.tabs {
+  margin-bottom: $spacing-lg;
+}
+
+.categoryTabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.categoryTab {
+  padding: 8rpx $spacing-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  display: inline-block;
+  transition: all $transition-base;
+}
+
+.categoryTabActive {
+  background: $color-primary;
+  color: $color-text-inverse;
+}
+
+.materialCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.materialHeader {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.materialName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.materialMeta {
+  display: flex;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-sm;
+}
+
+.materialMetaItem {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.stockBar {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.stockProgress {
+  flex: 1;
+  height: 12rpx;
+  background: $color-border-light;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.stockFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-success 0%, $color-secondary 100%);
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.stockFillLow {
+  background: linear-gradient(90deg, $color-warning 0%, $color-error 100%);
+}
+
+.stockText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  min-width: 160rpx;
+  text-align: right;
+}
+
+.materialFooter {
+  @include flex-between;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.materialFooterText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.formulaCard {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.formulaHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.formulaName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.formulaUsage {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+}
+
+.formulaItems {
+  margin-bottom: $spacing-md;
+}
+
+.formulaItem {
+  @include flex-between;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.formulaItemName {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+}
+
+.formulaItemRatio {
+  font-size: $font-size-base;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.formulaFooter {
+  @include flex-between;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.formulaFooterText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}

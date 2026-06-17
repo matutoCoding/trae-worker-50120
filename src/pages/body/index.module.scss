@@ -1,0 +1,84 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 180rpx;
+}
+
+.filters {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-bg-page;
+  padding-top: $spacing-md;
+  padding-bottom: $spacing-md;
+  margin: 0 (-$page-padding);
+  padding-left: $page-padding;
+  padding-right: $page-padding;
+}
+
+.typeTabs {
+  margin-bottom: $spacing-md;
+}
+
+.statusTabs {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.statusTab {
+  padding: 8rpx $spacing-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  transition: all $transition-base;
+}
+
+.statusTabActive {
+  background: $color-primary;
+  color: $color-text-inverse;
+}
+
+.list {
+  margin-top: $spacing-sm;
+}
+
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  padding: 120rpx 0;
+}
+
+.emptyText {
+  font-size: $font-size-base;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-lg;
+}
+
+.fab {
+  position: fixed;
+  right: $spacing-xl;
+  bottom: 180rpx;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  @include flex-center;
+  box-shadow: $shadow-float;
+  z-index: 100;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.fabText {
+  font-size: 56rpx;
+  color: $color-text-inverse;
+  font-weight: $font-weight-light;
+  line-height: 1;
+}

@@ -1,0 +1,214 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-top: $spacing-lg;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  @include card-base;
+  margin-bottom: $spacing-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-inverse;
+}
+
+.workName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+}
+
+.workArtist {
+  font-size: $font-size-base;
+  opacity: 0.9;
+  margin-bottom: $spacing-xs;
+}
+
+.workStyle {
+  font-size: $font-size-sm;
+  opacity: 0.85;
+}
+
+.basicInfo {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.infoRow {
+  @include flex-between;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  text-align: right;
+  flex: 1;
+  margin-left: $spacing-md;
+}
+
+.section {
+  @include card-base;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.timeline {
+  position: relative;
+  padding-left: $spacing-xl;
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: $spacing-lg;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  left: -$spacing-xl;
+  top: 6rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: $radius-round;
+  background: $color-border;
+  border: 4rpx solid $color-bg-card;
+}
+
+.dotFinished {
+  background: $color-success;
+}
+
+.dotProcessing {
+  background: $color-primary;
+}
+
+.dotPending {
+  background: $color-border;
+}
+
+.timelineLine {
+  position: absolute;
+  left: -44rpx;
+  top: 30rpx;
+  bottom: -$spacing-lg;
+  width: 2rpx;
+  background: $color-border-light;
+}
+
+.timelineItem:last-child .timelineLine {
+  display: none;
+}
+
+.timelineHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xs;
+}
+
+.timelineType {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.timelineStatus {
+  font-size: $font-size-xs;
+  padding: 2rpx $spacing-sm;
+  border-radius: $radius-sm;
+  background: $color-tag-process;
+  color: $color-text-secondary;
+}
+
+.statusFinished {
+  background: rgba(46, 93, 58, 0.1);
+  color: $color-success;
+}
+
+.statusProcessing {
+  background: rgba(139, 35, 35, 0.1);
+  color: $color-primary;
+}
+
+.timelineMeta {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-bottom: 4rpx;
+}
+
+.timelineNote {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.descBox {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.8;
+  padding: $spacing-md;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+}
+
+.careBox {
+  padding: $spacing-md;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: $radius-md;
+  border-left: 6rpx solid $color-secondary;
+}
+
+.careTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-secondary-dark;
+  margin-bottom: $spacing-sm;
+}
+
+.careContent {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: 1.8;
+}
+
+.priceBox {
+  @include flex-between;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-border-light;
+}
+
+.priceLabel {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+}
+
+.priceValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.tags {
+  display: flex;
+  gap: $spacing-xs;
+  margin-top: $spacing-sm;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,28 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  display: flex;
+  margin-bottom: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 8rpx;
+  box-shadow: $shadow-card;
+}
+
+.item {
+  flex: 1;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+}
+
+.active {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-inverse;
+  font-weight: $font-weight-semibold;
+}

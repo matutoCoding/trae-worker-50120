@@ -1,0 +1,115 @@
+@use './theme.scss' as *;
+
+$page-padding: 32rpx;
+$max-content-width: 686rpx;
+
+$spacing-xs: 8rpx;
+$spacing-sm: 16rpx;
+$spacing-md: 24rpx;
+$spacing-lg: 32rpx;
+$spacing-xl: 48rpx;
+$spacing-xxl: 64rpx;
+
+$radius-xs: 4rpx;
+$radius-sm: 8rpx;
+$radius-md: 12rpx;
+$radius-lg: 16rpx;
+$radius-xl: 24rpx;
+$radius-button: 48rpx;
+$radius-round: 999rpx;
+
+$font-size-xs: 22rpx;
+$font-size-sm: 24rpx;
+$font-size-base: 28rpx;
+$font-size-md: 30rpx;
+$font-size-lg: 34rpx;
+$font-size-xl: 40rpx;
+$font-size-xxl: 48rpx;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$button-height-sm: 64rpx;
+$button-height-md: 80rpx;
+$button-height-lg: 96rpx;
+
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-ellipsis-multi($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}
+
+@mixin button-reset {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  line-height: normal;
+  &::after {
+    border: none;
+  }
+}
+
+@mixin scroll-x-container {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin scroll-x-item($width) {
+  display: inline-block;
+  width: $width;
+  white-space: normal;
+  vertical-align: top;
+}
+
+@mixin card-base {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+}
+
+@mixin page-base {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding: 0 $page-padding;
+  box-sizing: border-box;
+}

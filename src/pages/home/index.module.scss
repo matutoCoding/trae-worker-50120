@@ -1,0 +1,188 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include page-base;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  padding-top: 48rpx;
+  padding-bottom: $spacing-xl;
+}
+
+.greeting {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.date {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.stats {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.statCard {
+  flex: 1;
+  @include card-base;
+  padding: $spacing-lg $spacing-md;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.statValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.statValueGold {
+  color: $color-secondary-dark;
+}
+
+.statValueGreen {
+  color: $color-celadon;
+}
+
+.statLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.quickEntry {
+  @include card-base;
+  margin-bottom: $spacing-xl;
+  padding: $spacing-lg $spacing-md;
+}
+
+.quickGrid {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.todoSection {
+  margin-bottom: $spacing-xl;
+}
+
+.sectionTitle {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitleText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.more {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.todoItem {
+  @include card-base;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: 0;
+  @include flex-between;
+}
+
+.todoLeft {
+  @include flex-start;
+  flex: 1;
+}
+
+.todoDot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: $radius-round;
+  background: $color-primary;
+  margin-right: $spacing-md;
+}
+
+.todoDotWarning {
+  background: $color-warning;
+}
+
+.todoContent {
+  flex: 1;
+}
+
+.todoTitle {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  margin-bottom: 4rpx;
+}
+
+.todoDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.todoTime {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.progressSection {
+  margin-bottom: $spacing-md;
+}
+
+.progressCard {
+  @include card-base;
+  margin-bottom: $spacing-sm;
+}
+
+.progressHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.progressName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.progressPercent {
+  font-size: $font-size-base;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.progressBar {
+  width: 100%;
+  height: 12rpx;
+  background: $color-border-light;
+  border-radius: $radius-round;
+  overflow: hidden;
+  margin-bottom: $spacing-sm;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-primary 0%, $color-secondary 100%);
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.progressSteps {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}

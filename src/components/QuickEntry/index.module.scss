@@ -1,0 +1,36 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-lg;
+  background: rgba(139, 35, 35, 0.08);
+  margin-bottom: $spacing-sm;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  text-align: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.iconText {
+  font-size: 40rpx;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
