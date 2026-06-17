@@ -4,24 +4,25 @@ import Taro from '@tarojs/taro'
 import { useRouter } from '@tarojs/taro'
 import classnames from 'classnames'
 import Button from '@/components/Button'
-import { mockCustomOrders, mockWorkArchives } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { formatDate, getStatusText } from '@/utils'
 import styles from './index.module.scss'
 
 const OrderDetailPage: React.FC = () => {
+  const { state } = useAppStore()
   const router = useRouter()
   const orderId = router.params.id || 'o001'
 
   const order = useMemo(() => {
-    return mockCustomOrders.find(o => o.id === orderId) || mockCustomOrders[0]
-  }, [orderId])
+    return state.customOrders.find(o => o.id === orderId) || state.customOrders[0]
+  }, [state.customOrders, orderId])
 
   const work = useMemo(() => {
     if (order.workId) {
-      return mockWorkArchives.find(w => w.id === order.workId)
+      return state.workArchives.find(w => w.id === order.workId)
     }
     return null
-  }, [order])
+  }, [state.workArchives, order])
 
   const steps = useMemo(() => {
     return [

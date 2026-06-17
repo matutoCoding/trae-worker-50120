@@ -5,27 +5,28 @@ import dayjs from 'dayjs'
 import SectionCard from '@/components/SectionCard'
 import QuickEntry from '@/components/QuickEntry'
 import Tag from '@/components/Tag'
-import { mockWorkArchives, mockProcessRecords } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { getStatusText, getStatusColor } from '@/utils'
 import styles from './index.module.scss'
 
 const HomePage: React.FC = () => {
+  const { state } = useAppStore()
   const [refreshing, setRefreshing] = useState(false)
 
   const stats = useMemo(() => {
-    const inProgress = mockWorkArchives.filter(w => w.status === 'in_progress').length
-    const pendingTasks = mockProcessRecords.filter(p => p.status === 'pending').length
-    const finishedMonth = mockWorkArchives.filter(w => {
+    const inProgress = state.workArchives.filter(w => w.status === 'in_progress').length
+    const pendingTasks = state.processRecords.filter(p => p.status === 'pending').length
+    const finishedMonth = state.workArchives.filter(w => {
       if (!w.finishDate) return false
       return dayjs(w.finishDate).format('YYYY-MM') === dayjs().format('YYYY-MM')
     }).length
     return { inProgress, pendingTasks, finishedMonth }
-  }, [])
+  }, [state.workArchives, state.processRecords])
 
   const quickItems = [
     { label: '胎体登记', icon: '器', path: '/pages/body-register/index' },
     { label: '漆料管理', icon: '漆', path: '/pages/lacquer/index' },
-    { label: '新增工序', icon: '髹', onClick: () => Taro.showToast({ title: '新增工序', icon: 'none' }) },
+    { label: '新增工序', icon: '髹', path: '/pages/process-add/index' },
     { label: '入荫管理', icon: '荫', onClick: () => Taro.switchTab({ url: '/pages/process/index' }) },
     { label: '打磨推光', icon: '磨', onClick: () => Taro.switchTab({ url: '/pages/process/index' }) },
     { label: '作品入库', icon: '藏', onClick: () => Taro.switchTab({ url: '/pages/archive/index' }) },
@@ -33,7 +34,7 @@ const HomePage: React.FC = () => {
     { label: '养护指南', icon: '养', onClick: () => Taro.switchTab({ url: '/pages/order/index' }) }
   ]
 
-  const inProgressWorks = mockWorkArchives.filter(w => w.status === 'in_progress').slice(0, 3)
+  const inProgressWorks = state.workArchives.filter(w => w.status === 'in_progress').slice(0, 3)
 
   const handleRefresh = () => {
     setRefreshing(true)
@@ -44,7 +45,7 @@ const HomePage: React.FC = () => {
     }, 1000)
   }
 
-  const calcProgress = (work: typeof mockWorkArchives[0]) => {
+  const calcProgress = (work: typeof state.workArchives[0]) => {
     if (work.processRecords.length === 0) return 0
     const finished = work.processRecords.filter(r => r.status === 'finished').length
     return Math.round((finished / work.processRecords.length) * 100)
@@ -91,7 +92,7 @@ const HomePage: React.FC = () => {
           <Text className={styles.more}>查看全部</Text>
         </View>
         <View className={styles.todoList}>
-          {mockProcessRecords.filter(p => p.status === 'pending').slice(0, 3).map(item => (
+          {state.processRecords.filter(p => p.status === 'pending').slice(0, 3).map(item => (
             <View key={item.id} className={styles.todoItem}>
               <View className={styles.todoLeft}>
                 <View className={styles.todoDot} />
@@ -103,7 +104,7 @@ const HomePage: React.FC = () => {
               <Text className={styles.todoTime}>待处理</Text>
             </View>
           ))}
-          {mockProcessRecords.filter(p => p.status === 'processing').slice(0, 2).map(item => (
+          {state.processRecords.filter(p => p.status === 'processing').slice(0, 2).map(item => (
             <View key={item.id} className={styles.todoItem}>
               <View className={styles.todoLeft}>
                 <View className={[styles.todoDot, styles.todoDotWarning].join(' ')} />

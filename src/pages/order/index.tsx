@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro'
 import classnames from 'classnames'
 import SegmentedControl from '@/components/SegmentedControl'
 import Tag from '@/components/Tag'
-import { mockCustomOrders, mockCareGuides, mockWorkArchives } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { formatDate, getStatusText, getStatusColor } from '@/utils'
 import styles from './index.module.scss'
 
@@ -22,20 +22,21 @@ const statusItems = [
 ]
 
 const OrderPage: React.FC = () => {
+  const { state } = useAppStore()
   const [currentTab, setCurrentTab] = useState('orders')
   const [currentStatus, setCurrentStatus] = useState('all')
 
   const filteredOrders = useMemo(() => {
     if (currentTab !== 'orders') return []
-    if (currentStatus === 'all') return mockCustomOrders
-    return mockCustomOrders.filter(o => o.status === currentStatus)
-  }, [currentTab, currentStatus])
+    if (currentStatus === 'all') return state.customOrders
+    return state.customOrders.filter(o => o.status === currentStatus)
+  }, [state.customOrders, currentTab, currentStatus])
 
   const salesStats = useMemo(() => {
-    const soldWorks = mockWorkArchives.filter(w => w.status === 'sold')
+    const soldWorks = state.workArchives.filter(w => w.status === 'sold')
     const total = soldWorks.reduce((sum, w) => sum + (w.price || 0), 0)
     return { total, count: soldWorks.length }
-  }, [])
+  }, [state.workArchives])
 
   const handleOrderClick = (id: string) => {
     Taro.navigateTo({ url: `/pages/order-detail/index?id=${id}` })
@@ -129,7 +130,7 @@ const OrderPage: React.FC = () => {
 
       {currentTab === 'care' && (
         <View>
-          {mockCareGuides.map(guide => (
+          {state.careGuides.map(guide => (
             <View key={guide.id} className={styles.careCard}>
               <View className={styles.careHeader}>
                 <Text className={styles.careTitle}>{guide.title}</Text>

@@ -4,21 +4,22 @@ import Taro from '@tarojs/taro'
 import { useRouter } from '@tarojs/taro'
 import classnames from 'classnames'
 import Tag from '@/components/Tag'
-import { mockWorkArchives, mockBodies } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { formatDate, formatDateTime, getStatusText, getStatusColor, calcDurationText } from '@/utils'
 import styles from './index.module.scss'
 
 const WorkDetailPage: React.FC = () => {
+  const { state } = useAppStore()
   const router = useRouter()
   const workId = router.params.id || 'w001'
 
   const work = useMemo(() => {
-    return mockWorkArchives.find(w => w.id === workId) || mockWorkArchives[0]
-  }, [workId])
+    return state.workArchives.find(w => w.id === workId) || state.workArchives[0]
+  }, [state.workArchives, workId])
 
   const body = useMemo(() => {
-    return mockBodies.find(b => b.id === work.bodyId)
-  }, [work])
+    return state.bodies.find(b => b.id === work.bodyId)
+  }, [state.bodies, work])
 
   const getWorkTags = () => {
     const tags: { text: string; type?: any }[] = [{ text: work.style, type: 'gold' as const }]

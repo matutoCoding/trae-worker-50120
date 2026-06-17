@@ -3,13 +3,15 @@ import { View, Text, Input, Textarea, Picker } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import classnames from 'classnames'
 import Button from '@/components/Button'
-import { BodyTypeList } from '@/types'
+import { useAppStore } from '@/store'
+import { BodyTypeList, type Body } from '@/types'
 import { generateId } from '@/utils'
 import styles from './index.module.scss'
 
 const sourceOptions = ['自制', '外购', '定制']
 
 const BodyRegisterPage: React.FC = () => {
+  const { dispatch } = useAppStore()
   const [form, setForm] = useState({
     name: '',
     type: '',
@@ -24,12 +26,19 @@ const BodyRegisterPage: React.FC = () => {
       Taro.showToast({ title: '请填写必填项', icon: 'none' })
       return
     }
-    console.log('[BodyRegister] 提交数据:', {
+    const newBody: Body = {
       id: generateId('b'),
-      ...form,
+      name: form.name,
+      type: form.type,
+      material: form.material,
+      size: form.size,
+      source: form.source || '自制',
       registerDate: new Date().toISOString().split('T')[0],
-      status: 'pending'
-    })
+      status: 'pending',
+      description: form.description
+    }
+    dispatch({ type: 'ADD_BODY', payload: newBody })
+    console.log('[BodyRegister] 新增胎体:', newBody)
     Taro.showToast({ title: '登记成功', icon: 'success' })
     setTimeout(() => {
       Taro.navigateBack()

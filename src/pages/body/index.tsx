@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react'
 import { View, Text, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 import classnames from 'classnames'
 import SegmentedControl from '@/components/SegmentedControl'
 import ListItem from '@/components/ListItem'
 import Button from '@/components/Button'
-import { mockBodies } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { BodyTypeList, type Body } from '@/types'
 import { formatDate } from '@/utils'
 import styles from './index.module.scss'
@@ -23,16 +23,21 @@ const statusItems = [
 ]
 
 const BodyPage: React.FC = () => {
+  const { state } = useAppStore()
   const [currentType, setCurrentType] = useState('all')
   const [currentStatus, setCurrentStatus] = useState('all')
 
+  useDidShow(() => {
+    console.log('[BodyPage] 页面显示，当前胎体数量:', state.bodies.length)
+  })
+
   const filteredBodies = useMemo(() => {
-    return mockBodies.filter(b => {
+    return state.bodies.filter(b => {
       const typeMatch = currentType === 'all' || b.type === currentType
       const statusMatch = currentStatus === 'all' || b.status === currentStatus
       return typeMatch && statusMatch
     })
-  }, [currentType, currentStatus])
+  }, [state.bodies, currentType, currentStatus])
 
   const handleClick = (body: Body) => {
     Taro.showToast({ title: `查看 ${body.name}`, icon: 'none' })

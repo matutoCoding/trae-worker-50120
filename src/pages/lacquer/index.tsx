@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro'
 import classnames from 'classnames'
 import SegmentedControl from '@/components/SegmentedControl'
 import Tag from '@/components/Tag'
-import { mockLacquerMaterials, mockLacquerMixtures } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { formatDate } from '@/utils'
 import styles from './index.module.scss'
 
@@ -24,14 +24,15 @@ const categoryItems = [
 ]
 
 const LacquerPage: React.FC = () => {
+  const { state } = useAppStore()
   const [currentTab, setCurrentTab] = useState('stock')
   const [currentCategory, setCurrentCategory] = useState('all')
 
   const filteredMaterials = useMemo(() => {
     if (currentTab !== 'stock') return []
-    if (currentCategory === 'all') return mockLacquerMaterials
-    return mockLacquerMaterials.filter(m => m.category === currentCategory)
-  }, [currentTab, currentCategory])
+    if (currentCategory === 'all') return state.lacquerMaterials
+    return state.lacquerMaterials.filter(m => m.category === currentCategory)
+  }, [state.lacquerMaterials, currentTab, currentCategory])
 
   return (
     <ScrollView className={styles.page} scrollY>
@@ -100,7 +101,7 @@ const LacquerPage: React.FC = () => {
 
       {currentTab === 'mixture' && (
         <View>
-          {mockLacquerMixtures.map(formula => (
+          {state.lacquerMixtures.map(formula => (
             <View key={formula.id} className={styles.formulaCard}>
               <View className={styles.formulaHeader}>
                 <Text className={styles.formulaName}>{formula.name}</Text>

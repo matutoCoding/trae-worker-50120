@@ -8,7 +8,8 @@ export default defineAppConfig({
     'pages/lacquer/index',
     'pages/body-register/index',
     'pages/work-detail/index',
-    'pages/order-detail/index'
+    'pages/order-detail/index',
+    'pages/process-add/index'
   ],
   window: {
     backgroundTextStyle: 'light',

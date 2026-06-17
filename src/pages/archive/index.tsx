@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import SegmentedControl from '@/components/SegmentedControl'
 import Tag from '@/components/Tag'
-import { mockWorkArchives } from '@/data/mock'
+import { useAppStore } from '@/store'
 import { formatDate, getStatusText, getStatusColor } from '@/utils'
 import styles from './index.module.scss'
 
@@ -15,18 +15,19 @@ const statusItems = [
 ]
 
 const ArchivePage: React.FC = () => {
+  const { state } = useAppStore()
   const [currentStatus, setCurrentStatus] = useState('all')
 
   const filteredWorks = useMemo(() => {
-    if (currentStatus === 'all') return mockWorkArchives
-    return mockWorkArchives.filter(w => w.status === currentStatus)
-  }, [currentStatus])
+    if (currentStatus === 'all') return state.workArchives
+    return state.workArchives.filter(w => w.status === currentStatus)
+  }, [state.workArchives, currentStatus])
 
   const handleWorkClick = (id: string) => {
     Taro.navigateTo({ url: `/pages/work-detail/index?id=${id}` })
   }
 
-  const getWorkTags = (work: typeof mockWorkArchives[0]) => {
+  const getWorkTags = (work: typeof state.workArchives[0]) => {
     const tags: string[] = [work.style]
     if (work.hasMakiE) tags.push('莳绘')
     if (work.hasGoldPaint) tags.push('描金')
