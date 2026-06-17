@@ -60,12 +60,6 @@ const initialState: AppState = {
   careGuides: mockCareGuides
 }
 
-const STORAGE_KEY_BODIES = 'lw_bodies'
-const STORAGE_KEY_PROCESS = 'lw_process'
-const STORAGE_KEY_SHADOW = 'lw_shadow'
-const STORAGE_KEY_WORKS = 'lw_works'
-const STORAGE_KEY_ORDERS = 'lw_orders'
-
 function reducer(state: AppState, action: ActionType): AppState {
   switch (action.type) {
     case 'INIT_STATE':
