@@ -13,8 +13,18 @@ declare module '*.module.scss' {
   export default classes
 }
 
+declare function defineAppConfig(config: any): any
+declare function definePageConfig(config: any): any
+
 declare namespace JSX {
   interface IntrinsicElements {
     [elemName: string]: any
+  }
+}
+
+declare namespace NodeJS {
+  interface ProcessEnv {
+    NODE_ENV: string
+    TARO_ENV: string
   }
 }

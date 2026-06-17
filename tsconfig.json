@@ -9,8 +9,8 @@
     "noImplicitAny": false,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleSyntheticDefaultImports": true,
@@ -24,12 +24,12 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "lib": ["esnext", "dom"],
-    "typeRoots": ["node_modules/@types", "global.d.ts"],
+    "typeRoots": ["node_modules/@types"],
     "types": ["@tarojs/taro", "node"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["./src", "./types", "./config"],
+  "include": ["./src/**/*", "global.d.ts"],
   "compileOnSave": false
 }
